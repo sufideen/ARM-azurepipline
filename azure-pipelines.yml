@@ -10,26 +10,15 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: AzureResourceManagerTemplateDeployment@3
-  inputs:
-    deploymentScope: 'Resource Group'
-    azureResourceManagerConnection: 'techsupport'
-    subscriptionId: 'eaff6150-28d3-4c76-9d91-dc9944afcd25'
-    action: 'Create Or Update Resource Group'
-    resourceGroupName: 'azcloudlearn-rg'
-    templateLocation: 'URL of the file'
-    csmFileLink: 'https://raw.githubusercontent.com/sufideen/ARM-azurepipline/main/get-started-deployment-linked-template-azuredeploy.json'
-    deploymentMode: 'Incremental'
-    deploymentName: 'DeployPipelineTemplate'
 -
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
     deploymentScope: 'Resource Group'
-    azureResourceManagerConnection: 'techsupport'
+    azureResourceManagerConnection: 'AzureRmPipeline-conn'
     subscriptionId: 'eaff6150-28d3-4c76-9d91-dc9944afcd25'
     action: 'Create Or Update Resource Group'
-    resourceGroupName: 'azcloudlearn-rg'
-    location: 'UK South'
+    resourceGroupName: 'AzureRmPipeline-rg'
     templateLocation: 'URL of the file'
     csmFileLink: 'https://raw.githubusercontent.com/sufideen/ARM-azurepipline/main/get-started-deployment-linked-template-azuredeploy.json'
     deploymentMode: 'Incremental'
+    deploymentName: 'DeployPipelineTemplate'
